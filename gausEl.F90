@@ -1,5 +1,7 @@
+#define KIND 8
+
 module gausEl
-#define KIND 16
+
 
     contains
     subroutine gausEllimination (N, A, X)
@@ -19,3 +21,5 @@ module gausEl
         end do
     end subroutine
 end module
+
+!dwa tygodnie od 12.04.2018

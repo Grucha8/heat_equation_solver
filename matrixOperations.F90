@@ -1,4 +1,4 @@
-#define KIND 16
+#define KIND 8
 
 module matrixOpertations
 
