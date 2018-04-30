@@ -1,13 +1,13 @@
 module gausEl
-
+#define KIND 16
 
     contains
     subroutine gausEllimination (N, A, X)
         integer(kind = 4) :: N, i, j
-        real(kind = 4) :: A(:, :), X(:), c
+        real(kind = KIND) :: A(:, :), X(:), c
 
-        do i = 1, N-1
-            do j = 1, N-1
+        do i = 1, N
+            do j = 1, N
                 if (i.NE.j) then
                     c = A(i, j) / A(i, i)
                     A(:, j) = A(:, j) - c * A(:, i)
@@ -19,5 +19,3 @@ module gausEl
         end do
     end subroutine
 end module
-
-!dwa tygodnie od 12.04.2018
