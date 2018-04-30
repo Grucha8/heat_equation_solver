@@ -18,11 +18,15 @@ program main
 
     X = X * 10
 
-    write (*,*) A
+    print *, A
 
     call gausEllimination(N, A, X)
 
-    write (*,*) A
+    print *, A
+
+    print *, "\nARRAY X:\n"
+
+    print *, X
 
 
 
