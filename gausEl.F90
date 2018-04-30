@@ -3,11 +3,11 @@ module gausEl
 
     contains
     subroutine gausEllimination (N, A, X)
-        integer(kind = 8) :: N, i, j
+        integer(kind = 4) :: N, i, j
         real(kind = 4) :: A(:, :), X(:), c
 
-        do i = 1, N
-            do j = 1, N
+        do i = 1, N-1
+            do j = 1, N-1
                 if (i.NE.j) then
                     c = A(i, j) / A(i, i)
                     A(:, j) = A(:, j) - c * A(:, i)

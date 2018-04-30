@@ -1,22 +1,24 @@
 program main
-    use gausEl
+    use gausEl 
+    use matrixOpertations
     
     implicit none
-    integer(kind = 4) :: length, status, i, j
-    integer(kind = 8) :: N = 5
+    integer(kind = 4) :: N = 5
+    real(kind  = 4) :: h
     real(kind = 4), allocatable, dimension(:, :) :: A(:, :)
-    real(kind = 4), allocatable, dimension(:) :: X(:)
+    real(kind = 4), allocatable, dimension(:) :: X(:), B(:)
 
-    allocate(A(5, 5))
-    allocate(X(5))
+    !distance between points
+    h = 1.0 / N
 
-    call random_number(A)
+    print *, h
 
-    A = A * 10
+    allocate(A(N-1, N-1))
+    allocate(X(N-1))
+    allocate(B(N-1))
 
-    call random_number(X)
-
-    X = X * 10
+    call fillMainMatrix(A, N, h)
+    call fillRightSideMatrix(X, N)
 
     print *, A
 
@@ -24,10 +26,11 @@ program main
 
     print *, A
 
-    print *, "\nARRAY X:\n"
-
     print *, X
 
+    call equationSolver(A, B, X, N)
 
+    print *, "========================="
+    print *, B 
 
 end program main
